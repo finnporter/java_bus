@@ -15,7 +15,7 @@ public class Bus {
   public int passengerCount() {
     int numberOfPassengers = 0;
 
-    for (Person passenger : passengers) {
+    for (Person passenger : this.passengers) {
       if (passenger != null) {
         numberOfPassengers++;
       }
@@ -23,4 +23,15 @@ public class Bus {
 
     return numberOfPassengers;
   }
+
+  public void board(Person passenger) {
+    if (isBusFull()) return;
+
+    int index = passengerCount();
+    this.passengers[index] = passenger; 
+  }
+
+public boolean isBusFull() {
+  return passengerCount() == this.passengers.length;
+}
 }

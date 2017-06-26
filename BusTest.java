@@ -25,7 +25,16 @@ public class BusTest {
 
   @Test
   public void canTakePassengers() {
-    bus.board(passengers)
+    bus.board(person);
+    assertEquals(1, bus.passengerCount());
+  }
+
+  @Test
+  public void busIsFull() {
+    for (int i = 0; i < 80; i++) {
+      bus.board(person);
+    }
+    assertEquals(true, bus.isBusFull()); 
   }
 
 }
